@@ -40,4 +40,26 @@ def llenar(lista_consumo, lista_total):
 
     print(lista)
     wb.close()
-    #insert.insert(lista)
+    insert.insert(lista)
+
+def cosulta(resultado):
+    wb = xlsxwriter.Workbook('excel/resultado_consulta.xlsx')
+    ws = wb.add_worksheet()
+
+    row = 0
+    col = 0
+
+    titulos = ["#","Cod restaurante","Lectura actual","Lectura anterior","Consumo","Vertimiento","Total a pagar"]
+    for titulo in titulos:
+        ws.write(row, col, titulo)
+        col +=1
+    col = 0
+    for restaurante in resultado:
+        row +=1
+        for dato in restaurante:
+            ws.write(row, col, dato)
+            col +=1
+        col = 0
+            
+    wb.close()
+
