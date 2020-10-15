@@ -8,6 +8,7 @@ def ocr(ruta):
 
     ROI = image[993:993+381,1429:1429+741]
     ROI2 = image[153:153+133,3065:3065+869]
+    ROI3 = image[1249:1249+93,1025:1025+301]
 
     print("texto de roi1")
     data = pytesseract.image_to_string(ROI)
@@ -21,10 +22,17 @@ def ocr(ruta):
     print("--------------------------------")
     lista_total = data2.split()
 
+    print("texto de roi3")
+    data3 = pytesseract.image_to_string(ROI3)
+    print(data3)
+    print("--------------------------------")
+    lista_fecha = data3.split()
+
     #cv2.imshow('imagen redimencionada', image)
     #cv2.imshow('ROI', ROI)
     #cv2.imshow('ROI2', ROI2)
+    #cv2.imshow('ROI3', ROI3)
     #cv2.waitKey(0)
     #cv2.destroyAllWindows()
 
-    llenar_excel.llenar(lista_consumo, lista_total)
+    #llenar_excel.llenar(lista_consumo, lista_total, lista_fecha)

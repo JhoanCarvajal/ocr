@@ -20,8 +20,8 @@ año = fecha_actual.year
 años = []
 for i in range(año,(año-30),-1):
     años.append(i)
-meses = ["Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre"]
-
+#meses = ["Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre"]
+meses = [1,2,3,4,5,6,7,8,9,10,11,12]
 def seleccionar():
     img_ruta = askopenfilename()
     nombre_img["text"] = str(img_ruta)
@@ -39,6 +39,10 @@ def cb_restaurantes_click(event):
 def consultar():
     resultado = select_restaurante.info_restaurante(cb_mes.get(),cb_restaurantes.get(),cb_años.get())
     llenar_excel.cosulta(resultado)
+
+def consultar_año():
+    resultado = select_restaurante.info_todo_año(cb_restaurantes.get(),cb_años.get())
+    llenar_excel.cosulta(resultado)
     
 
 nombre_img = Label(frame, text = "Seleccione una imagen")
@@ -52,6 +56,9 @@ btn_analizar.grid(row=2,column=2)
 
 btn_consulta = Button(frame, text = "Consultar", command = consultar)
 btn_consulta.grid(row=4,column=0)
+
+btn_consulta_año = Button(frame, text = "Consultar todo el año", command = consultar_año)
+btn_consulta_año.grid(row=4,column=1)
 
 lb_mes = Label(frame, text = "Mes: ")
 lb_mes.grid(row=3, column=0)
