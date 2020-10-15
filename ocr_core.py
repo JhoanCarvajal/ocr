@@ -35,4 +35,4 @@ def ocr(ruta):
     #cv2.waitKey(0)
     #cv2.destroyAllWindows()
 
-    #llenar_excel.llenar(lista_consumo, lista_total, lista_fecha)
+    llenar_excel.llenar(lista_consumo, lista_total, lista_fecha)
